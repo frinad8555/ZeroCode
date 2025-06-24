@@ -2,17 +2,3 @@
   padding: 0;
   margin: 0;
 }
-
-.home-container {
-  height: 100vh;
-  display: grid;
-  grid-template-columns: 2fr 3fr;
-  .left {
-    background-color: #1e1e1e;
-    color: white;
-  }
-  .right {
-    background-color: white;
-  }
-}
-
