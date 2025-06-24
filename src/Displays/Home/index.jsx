@@ -1,7 +1,13 @@
+import { useContext } from "react";
 import { RightComponent } from "./RightComponent"
 import "./index.scss"
+import { ModalContext, modalConst } from "../../Provider/ModalProvider";
 
 export const HomeScreen = () => {
+    const modalFeature = useContext(ModalContext);
+    const createPlaygroundModal = () => {
+        modalFeature.openModal(modalConst.create_playground);
+    };
     return (
         <div className="home-container">
             <div className="left">
@@ -9,12 +15,11 @@ export const HomeScreen = () => {
                     <img src="logo-small.png"></img>
                     <h1>Code Box</h1>
                     <h2>Code. Compile. Conclude.</h2>
-                    <button>Create Folder +</button>
+                    <button onClick={createPlaygroundModal}>Create Folder +</button>
                 </div>
             </div>
-            <div className="right">
-                <RightComponent />
-            </div>
+            <RightComponent />
+
         </div>
     )
 }

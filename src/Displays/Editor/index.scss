@@ -1,0 +1,65 @@
+.main-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    .icon-container {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    .logo {
+        height: 60px;
+    }
+
+    .header {
+        display: flex;
+        justify-content: center;
+        background-color: gray;
+        padding: 5px 0;
+    }
+
+    .code-container {
+        flex-grow: 1;
+        display: grid;
+        grid-template-columns: 3fr 2fr;
+        gap: 10px;
+        background-color: white;
+        padding: 10px;
+
+        .io-container {
+            background-color: #EDEDED;
+            display: flex;
+            flex-direction: column;
+
+            .io-header {
+                padding: 15px;
+                display: flex;
+                justify-content: space-between;
+            }
+
+            textarea {
+                padding: 10px;
+                resize: none;
+                flex-grow: 1;
+                border: none;
+                font-size: 0.9rem;
+            }
+
+            textarea:focus {
+                outline: none;
+            }
+
+            button {
+                border: none;
+            }
+        }
+
+        .editor-container {
+            grid-row: 1 / 3;
+        }
+    }
+
+}

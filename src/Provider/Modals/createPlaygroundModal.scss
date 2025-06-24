@@ -1,0 +1,63 @@
+.new-modal-container {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(99, 98, 98, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .new-modal-form {
+        width: 500px;
+        height: 250px;
+        background-color: rgb(243, 241, 241);
+        padding: 50px;
+        border-radius: 10px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        box-shadow: 4px 4px 10px gray;
+
+        .new-form-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+
+            input,
+            select {
+                border: none;
+                background-color: rgba(207, 206, 206, 0.595);
+                padding: 7px;
+                border-radius: 6px;
+            }
+
+            input:focus {
+                outline: none;
+            }
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+        }
+
+        button {
+            padding: 10px;
+            border-radius: 6px;
+            border: none;
+            background-color: black;
+            color: white;
+            cursor: pointer;
+            transition-duration: 0.2s;
+        }
+
+        button:hover {
+            background-color: rgb(55, 54, 54);
+        }
+    }
+}
