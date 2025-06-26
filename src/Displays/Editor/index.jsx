@@ -8,7 +8,7 @@ export const Editor = () => {
     return (
         <div className="main-container">
             <div className="header">
-                <img src="/logo-small.png" className="logo" />
+                <h1 className="logo">Zero Code</h1>
             </div>
             <div className="code-container">
                 <div className="editor-container">

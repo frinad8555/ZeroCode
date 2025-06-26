@@ -12,8 +12,7 @@ export const HomeScreen = () => {
         <div className="home-container">
             <div className="left">
                 <div className="subleft">
-                    <img src="logo-small.png"></img>
-                    <h1>Code Box</h1>
+                    <h1>Zero Code</h1>
                     <h2>Code. Compile. Conclude.</h2>
                     <button onClick={createPlaygroundModal}>Create Folder +</button>
                 </div>

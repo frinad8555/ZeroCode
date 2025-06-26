@@ -62,7 +62,6 @@ const Folder = ({folderName, cards, folderId}) => {
 
                     return (
                         <div className="cards" key={index} onClick={goToEditor}>
-                            <img src="logo-small.png" />
                             <div className="name-of-file">
                                 <span>{file?.filename}</span>
                                 <span>Language: {file?.language}</span>
