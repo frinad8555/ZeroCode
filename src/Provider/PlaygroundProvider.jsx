@@ -29,29 +29,35 @@ const initData = [
     }
 ];
 export const codeSnippet = {
-    ['cpp']: `
-#include <iostream>
+    ['cpp']: `#include <iostream>
 using namespace std;
 int main() {
     cout << "Hello C++" << endl;
     return 0;
 }
 `,
-    ['java']: `
-public class Hello {
+    ['java']: `class Main {
     public static void main(String args[]) {
         System.out.println("Hello JAVA");
     } 
 }    
 `,
     ['js']: `console.log("Hello");`,
+    ['javascript']: `console.log("Hello JS");`,
     ['python']: `print("Hello")`
 }
 export const languages = {
     ['cpp']: `C++`,
     ['java']: `Java`,
-    ['js']: `JavaScript`,
+    ['javascript']: `JavaScript`,
+    ['js']: 'JavaScript',
     ['python']: `Python`
+}
+const revLang = {
+    ['C++']: 'cpp',
+    ['Java']: 'java',
+    ['JavaScript']: 'javascript',
+    ['Python']: 'python'
 }
 
 export const PlaygroundProvider = (props) => {
@@ -165,6 +171,78 @@ export const PlaygroundProvider = (props) => {
         setFolders(copy);
     }
 
+    const getDefaultCode = (fileId, folderId) => {
+        for(let i = 0; i < folders.length; i++) {
+            if(folders[i].id === folderId) {
+                for(let j = 0; j < folders[i].files.length; j++) {
+                    const curFile = folders[i].files[j];
+                    if(fileId === curFile.id) {
+                        return curFile.default;
+                    }
+                }
+            }
+        }
+    }
+
+    const getLang = (fileId, folderId) => {
+        for(let i = 0; i < folders.length; i++) {
+            if(folders[i].id === folderId) {
+                for(let j = 0; j < folders[i].files.length; j++) {
+                    const curFile = folders[i].files[j];
+                    if(fileId === curFile.id) {
+                        return revLang[curFile.language];
+                    }
+                }
+            }
+        }
+    }
+
+    const editLang = (fileId, folderId, newLang) => {
+        const newFolders = [...folders];
+
+        for(let i = 0; i < newFolders.length; i++) {
+            if(newFolders[i].id === folderId) {
+                for(let j = 0; j < newFolders[i].files.length; j++) {
+                    const curFile = newFolders[i].files[j];
+                    if(fileId === curFile.id) {
+                        newFolders[i].files[j].default = codeSnippet[newLang];
+                        newFolders[i].files[j].language = languages[newLang];
+                    }
+                }
+            }
+        }
+        localStorage.setItem('data', JSON.stringify(newFolders));
+        setFolders(newFolders);
+    }
+
+    const saveCode = (fileId, folderId, newCode) => {
+        const newFolders = [...folders];
+        for(let i = 0; i < newFolders.length; i++) {
+            if(newFolders[i].id === folderId) {
+                for(let j = 0; j < newFolders[i].files.length; j++) {
+                    if(fileId === newFolders[i].files[j].id) {
+                        newFolders[i].files[j].default = newCode;
+                    }
+                }
+            }
+        }
+        localStorage.setItem('data', JSON.stringify(newFolders));
+        setFolders(newFolders);
+    }
+
+    const getFileName = (fileId, folderId) => {
+        for(let i = 0; i < folders.length; i++) {
+            if(folders[i].id === folderId) {
+                for(let j = 0; j < folders[i].files.length; j++) {
+                    const curFile = folders[i].files[j];
+                    if(fileId === curFile.id) {
+                        return curFile.filename;
+                    }
+                }
+            }
+        }
+    }
+
     useEffect(() => {
         if (!(localStorage.getItem('data'))) {
             localStorage.setItem('data', JSON.stringify(folders));
@@ -180,7 +258,12 @@ export const PlaygroundProvider = (props) => {
         editFolder,
         editFile,
         deleteFile,
-        createNewFile
+        createNewFile,
+        getDefaultCode,
+        getLang,
+        editLang,
+        saveCode,
+        getFileName
     }
 
     return (

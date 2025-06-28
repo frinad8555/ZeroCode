@@ -1,12 +1,12 @@
-import { use, useContext } from "react";
+import { useContext } from "react";
 import "./index.scss";
 import { PlayContext } from "../../../Provider/PlaygroundProvider";
 import { ModalContext, modalConst } from "../../../Provider/ModalProvider";
 import { useNavigate } from "react-router-dom";
 
-const Folder = ({folderName, cards, folderId}) => {
-    const {deleteFolder, deleteFile} = useContext(PlayContext);
-    const {openModal, setPayload} = useContext(ModalContext);
+const Folder = ({ folderName, cards, folderId }) => {
+    const { deleteFolder, deleteFile } = useContext(PlayContext);
+    const { openModal, setPayload } = useContext(ModalContext);
 
     const deleteFolderFunc = () => {
         deleteFolder(folderId);
@@ -20,7 +20,7 @@ const Folder = ({folderName, cards, folderId}) => {
         openModal(modalConst.create_file);
     }
     const navigate = useNavigate();
-    
+
     return <div className="folders-container">
         <div className="folders-header">
             <div className="left-folders">
@@ -47,7 +47,7 @@ const Folder = ({folderName, cards, folderId}) => {
             {
                 cards?.map((file, index) => {
                     const editFileFunc = () => {
-                        setPayload({fileId: file.id, folderId: folderId});
+                        setPayload({ fileId: file.id, folderId: folderId });
                         openModal(modalConst.edit_file);
                     }
 
@@ -56,7 +56,7 @@ const Folder = ({folderName, cards, folderId}) => {
                     }
 
                     const goToEditor = () => {
-                        console.log({fileId: file.id, folderId: folderId});
+                        console.log({ fileId: file.id, folderId: folderId });
                         navigate(`/editor/${file.id}/${folderId}`);
                     }
 
@@ -67,10 +67,17 @@ const Folder = ({folderName, cards, folderId}) => {
                                 <span>Language: {file?.language}</span>
                             </div>
                             <div style={{ display: 'flex', gap: '8px' }}>
-                                <span className="material-symbols-outlined" onClick={deleteFileFunc}>
+                                <span className="material-symbols-outlined" onClick={(e) => {
+                                    e.stopPropagation();
+                                    deleteFileFunc();
+                                }}>
                                     delete
                                 </span>
-                                <span className="material-symbols-outlined" onClick={editFileFunc}>
+                                <span className="material-symbols-outlined" onClick={(e) => {
+                                    e.stopPropagation();
+                                    editFileFunc();
+                                }}
+                                >
                                     edit
                                 </span>
                             </div>
@@ -83,7 +90,7 @@ const Folder = ({folderName, cards, folderId}) => {
 }
 
 export const RightComponent = () => {
-    const {folders} = useContext(PlayContext);
+    const { folders } = useContext(PlayContext);
     const modalFeature = useContext(ModalContext);
 
     const createNewFolder = () => {
@@ -99,7 +106,7 @@ export const RightComponent = () => {
             </div>
             {
                 folders?.map((folder, index) => {
-                    return <Folder folderName={folder?.name} cards={folder?.files} key={index} folderId={folder?.id}/>
+                    return <Folder folderName={folder?.name} cards={folder?.files} key={index} folderId={folder?.id} />
                 })
             }
         </div>

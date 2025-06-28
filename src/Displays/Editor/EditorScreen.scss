@@ -2,21 +2,26 @@
     height: 100%;
     display: flex;
     flex-direction: column;
+
     .editor-header {
         background-color: rgb(171, 144, 108);
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding: 10px;
+
         .title {
             font-size: 1.3rem;
         }
-        .left-part, .right-part {
+
+        .left-part,
+        .right-part {
             display: flex;
             gap: 10px;
             align-items: center;
-            
+
         }
+
         select {
             border: none;
             background-color: #313131;
@@ -26,6 +31,7 @@
             width: 100px;
             color: white;
         }
+
         button {
             border: none;
             cursor: pointer;
@@ -36,33 +42,43 @@
             color: #00B8A2;
             transition-duration: 0.2s;
         }
+
         button:hover {
             background-color: #2e514c;
         }
+
         select:focus {
             outline: none;
         }
     }
+
     .editor-body {
         background-color: black;
         color: white;
         flex-grow: 1;
     }
+
     .editor-footer {
         background-color: rgb(171, 144, 108);
         padding: 10px;
         display: flex;
         justify-content: space-between;
-        button, label {
+
+        button,
+        label {
             display: flex;
             align-items: center;
             gap: 4px;
             font-size: 1rem;
             cursor: pointer;
         }
+
         button {
             border: none;
             background: transparent;
         }
     }
+
+
+
 }
