@@ -2,10 +2,11 @@
     height: 100vh;
     display: grid;
     grid-template-columns: 2fr 3fr;
+    font-family: 'Poppins', sans-serif;
 
     .left {
-        background-color: #1e1e1e;
-        color: white;
+        background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+        color: #ffffff;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -24,21 +25,28 @@
                 cursor: pointer;
                 height: 50px;
                 width: 155px;
-                background-color: white;
+                background: linear-gradient(90deg, #ffb347, #ffcc33);
+                color: #000000;
                 border: none;
                 border-radius: 24px;
                 font-size: 0.95rem;
                 font-weight: 600;
                 transition-duration: 0.6s;
+                font-family: 'Poppins', sans-serif;
+
             }
 
             button:hover {
-                box-shadow: 2px 2px 8px gray;
+                background: linear-gradient(90deg, #ffd54f, #ffa726);
+                background-position: right center;
+                transform: scale(1.07);
+                color: #ffffff;
             }
         }
     }
 
     .right {
-        background-color: white;
+        background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+        color: #000000;
     }
 }

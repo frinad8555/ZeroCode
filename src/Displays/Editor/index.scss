@@ -3,6 +3,7 @@
     display: flex;
     flex-direction: column;
     max-width: 100vw;
+    font-family: 'Poppins', sans-serif;
 
     .icon-container {
         display: flex;
@@ -20,8 +21,9 @@
     .header {
         display: flex;
         justify-content: center;
-        background-color: gray;
         padding: 5px 0;
+        background: linear-gradient(to right, #0f172a, #1e293b);
+        color: white;
     }
 
     .code-container {
@@ -29,18 +31,22 @@
         display: grid;
         grid-template-columns: 3fr 2fr;
         gap: 10px;
-        background-color: white;
+        background: linear-gradient(to right, #0f172a, #1e293b);
         padding: 10px;
 
         .io-container {
-            background-color: #EDEDED;
             display: flex;
             flex-direction: column;
+            color: white;
 
             .io-header {
                 padding: 15px;
                 display: flex;
                 justify-content: space-between;
+                align-items: center;
+                background: linear-gradient(to bottom right, #e0f7fa, #f0fdfa);
+                color: #1f2937;
+                border-radius: 8px 8px 0 0;
             }
 
             textarea {
@@ -49,15 +55,34 @@
                 flex-grow: 1;
                 border: none;
                 font-size: 0.9rem;
+                border-radius: 0 0 8px 8px;
+                background-color: #1e1e1e;
+                color: white;
+                font-family: 'Fira Code', monospace;
             }
 
             textarea:focus {
                 outline: none;
             }
 
-            button {
+            button,
+            label {
+                background: linear-gradient(90deg, #2ea9c5, #087f94);
+                color: white;
+                border-radius: 8px;
+                padding: 0.25rem 0.75rem;
+                transition: all 0.3s ease;
                 border: none;
+                font-size: 1rem;
+                font-family: 'Poppins', sans-serif;
             }
+
+            button:hover, label:hover {
+                transform: scale(1.05);
+            }
+
+
+
         }
 
         .editor-container {

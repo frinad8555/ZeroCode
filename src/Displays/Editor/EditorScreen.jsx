@@ -108,7 +108,7 @@ export const EditorScreen = ({ fileId, folderId, runCode }) => {
                     <b>Import Code</b>
                 </label>
                 <input type="file" id="import-code" style={{ display: 'none' }} onChange={onImportCode} />
-                <button onClick={onExportCode}>
+                <button onClick={onExportCode} className="export-code-btn">
                     <span className="material-symbols-outlined">download</span>
                     <b>Export Code</b>
                 </button>
