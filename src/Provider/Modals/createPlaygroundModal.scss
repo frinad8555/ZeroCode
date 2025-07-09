@@ -8,6 +8,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: 'Poppins', sans-serif;
+
 
     .new-modal-form {
         width: 500px;
@@ -20,6 +22,8 @@
         flex-direction: column;
         gap: 20px;
         box-shadow: 4px 4px 10px gray;
+        font-family: 'Poppins', sans-serif;
+
 
         .new-form-item {
             display: flex;
@@ -33,6 +37,8 @@
                 background-color: rgba(207, 206, 206, 0.595);
                 padding: 7px;
                 border-radius: 6px;
+                font-family: 'Poppins', sans-serif;
+
             }
 
             input:focus {
@@ -54,6 +60,8 @@
             color: white;
             cursor: pointer;
             transition-duration: 0.2s;
+            font-family: 'Poppins', sans-serif;
+
         }
 
         button:hover {
